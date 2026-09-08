@@ -771,7 +771,7 @@ h1, h2, h3, p { margin: 0; }
       "h1 h1"
       "photo supporting"
       "buttons buttons";
-    column-gap: 16px;
+    column-gap: 20px;
     row-gap: 0;
     padding: 32px 20px 28px;
     background: linear-gradient(180deg, var(--light-blue) 0%, var(--off-white) 100%);
