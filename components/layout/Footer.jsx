@@ -1,61 +1,74 @@
-import Link from 'next/link';
+const BOOK_CALL_URL = 'https://cal.com/raghavkanva/seo-consultation';
+const WHATSAPP_URL = 'https://wa.me/919514808885';
+
+const DESC = 'Helping agencies and businesses reach the right customers through Google and AI search, fix what is holding them back, and grow their business online.';
+
+function SocialIcons() {
+  return (
+    <>
+      <a href="https://www.linkedin.com/in/raghavkanva/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="9" width="4" height="12" /><circle cx="5" cy="4.5" r="1.8" /><path d="M11 21v-8M11 12.5c0-1.9 1.6-3.5 3.5-3.5S18 10.6 18 12.5V21" />
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/raghavkanva/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" />
+        </svg>
+      </a>
+      <a href="https://www.threads.net/@raghavkanva" aria-label="Threads" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 21c-4.5 0-7.5-2.8-7.5-8.5S7.5 4 12 4c3.6 0 6 1.9 6.3 5" />
+          <path d="M10.5 12.5c0-1.7 1.3-2.7 3-2.4 1.7.3 2.5 1.6 2.3 3.4-.2 2-1.7 3.2-3.7 3.2-2.4 0-4-1.4-4-3.8" />
+        </svg>
+      </a>
+    </>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="footer section-footer">
-      <div style={{position:'relative'}}>
-        <svg width="500" height="500" viewBox="0 0 500 500" style={{position:'absolute',right:-120,top:-160,opacity:.5,pointerEvents:'none'}} aria-hidden="true">
-          <circle cx="250" cy="250" r="240" fill="none" stroke="#1D2440" strokeWidth="1.5"/>
-          <circle cx="250" cy="250" r="170" fill="none" stroke="#1D2440" strokeWidth="1.5"/>
+    <footer>
+      <div className="footer-desktop">
+        <svg className="footer-rings" width="500" height="500" viewBox="0 0 500 500" aria-hidden="true">
+          <circle cx="250" cy="250" r="240" fill="none" stroke="#1D2440" strokeWidth="1.5" />
+          <circle cx="250" cy="250" r="170" fill="none" stroke="#1D2440" strokeWidth="1.5" />
         </svg>
 
-        <div className="footer-grid">
+        <div className="footer-top">
           <div>
-            <div className="footer-logo">RAGHAV KANVA</div>
-            <div className="footer-tagline">Independent SEO &amp; AI Discoverability Consultant</div>
-            <p className="footer-desc">
-              Helping businesses improve how the right customers find, understand, and choose them online.
-            </p>
+            <div className="footer-name">Raghav Kanva</div>
+            <div className="footer-role">SEO Consultant</div>
+            <p className="footer-desc">{DESC}</p>
           </div>
-
-          <div>
-            <div className="footer-col-label">Services</div>
-            <div className="footer-links">
-              <Link href="/services#seo-ai-visibility" className="footer-link">SEO &amp; AI Visibility</Link>
-              <Link href="/services#audit" className="footer-link">Strategic Discoverability Audit</Link>
-              <Link href="/services#monthly-advisory" className="footer-link">Monthly SEO &amp; Growth Advisory</Link>
-              <Link href="/services#paid-advertising" className="footer-link">Paid Advertising</Link>
-              <Link href="/services#content-landing" className="footer-link">Content &amp; Landing Page Strategy</Link>
-            </div>
-          </div>
-
-          <div>
-            <div className="footer-col-label">Who I Work With</div>
-            <div className="footer-links">
-              <Link href="/who-i-work-with/digital-marketing-agencies" className="footer-link">Digital Marketing Agencies</Link>
-              <Link href="/who-i-work-with/businesses-organizations" className="footer-link">Businesses &amp; Organizations</Link>
-              <Link href="/who-i-work-with/founders-experts" className="footer-link">Founders &amp; Experts</Link>
-            </div>
-          </div>
-
-          <div>
-            <div className="footer-col-label">Connect</div>
-            <div className="footer-links">
-              <Link href="/about" className="footer-link">About</Link>
-              <Link href="/contact" className="footer-link">Contact</Link>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
-              <a href="mailto:raghavkanva@gmail.com" className="footer-link">Email</a>
-            </div>
+          <div className="footer-links">
+            <a href={BOOK_CALL_URL}>Discovery Call</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="mailto:raghavkanva@gmail.com">Email</a>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <span>&copy; 2026 Raghav Kanva</span>
-          <div className="footer-bottom-links">
-            <span style={{cursor:'default'}}>Privacy</span>
-            <span style={{cursor:'default'}}>Terms</span>
+          <div className="footer-copy">&copy; 2026 Raghav Kanva</div>
+          <div className="footer-social">
+            <SocialIcons />
           </div>
         </div>
+      </div>
+
+      <div className="footer-mobile">
+        <div className="footer-name">Raghav Kanva</div>
+        <div className="footer-role">SEO Consultant</div>
+        <p className="footer-desc">{DESC}</p>
+        <div className="footer-links">
+          <a href={BOOK_CALL_URL}>Discovery Call</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="mailto:raghavkanva@gmail.com">Email</a>
+        </div>
+        <div className="footer-social">
+          <SocialIcons />
+        </div>
+        <div className="footer-bottom">&copy; 2026 Raghav Kanva</div>
       </div>
     </footer>
   );
