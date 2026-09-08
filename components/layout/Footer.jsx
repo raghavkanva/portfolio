@@ -30,47 +30,30 @@ function SocialIcons() {
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="footer-desktop">
-        <svg className="footer-rings" width="500" height="500" viewBox="0 0 500 500" aria-hidden="true">
-          <circle cx="250" cy="250" r="240" fill="none" stroke="#1D2440" strokeWidth="1.5" />
-          <circle cx="250" cy="250" r="170" fill="none" stroke="#1D2440" strokeWidth="1.5" />
-        </svg>
+    <footer className="site-footer">
+      <svg className="footer-rings" width="500" height="500" viewBox="0 0 500 500" aria-hidden="true">
+        <circle cx="250" cy="250" r="240" fill="none" stroke="#1D2440" strokeWidth="1.5" />
+        <circle cx="250" cy="250" r="170" fill="none" stroke="#1D2440" strokeWidth="1.5" />
+      </svg>
 
-        <div className="footer-top">
-          <div>
-            <div className="footer-name">Raghav Kanva</div>
-            <div className="footer-role">SEO Consultant</div>
-            <p className="footer-desc">{DESC}</p>
-          </div>
-          <div className="footer-links">
-            <a href={BOOK_CALL_URL}>Discovery Call</a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a href="mailto:raghavkanva@gmail.com">Email</a>
-          </div>
+      <div className="footer-top">
+        <div>
+          <div className="footer-name">Raghav Kanva</div>
+          <div className="footer-role">SEO Consultant</div>
+          <p className="footer-desc">{DESC}</p>
         </div>
-
-        <div className="footer-bottom">
-          <div className="footer-copy">&copy; 2026 Raghav Kanva</div>
-          <div className="footer-social">
-            <SocialIcons />
-          </div>
-        </div>
-      </div>
-
-      <div className="footer-mobile">
-        <div className="footer-name">Raghav Kanva</div>
-        <div className="footer-role">SEO Consultant</div>
-        <p className="footer-desc">{DESC}</p>
         <div className="footer-links">
           <a href={BOOK_CALL_URL}>Discovery Call</a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="mailto:raghavkanva@gmail.com">Email</a>
         </div>
+      </div>
+
+      <div className="footer-bottom">
+        <div className="footer-copy">&copy; 2026 Raghav Kanva</div>
         <div className="footer-social">
           <SocialIcons />
         </div>
-        <div className="footer-bottom">&copy; 2026 Raghav Kanva</div>
       </div>
     </footer>
   );

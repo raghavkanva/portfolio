@@ -1,6 +1,6 @@
 # ============================================================
 # robots.txt
-# Website: https://raghavkanva.com/
+# Website: https://www.raghavkanva.com/
 # Raghav Kanva | SEO Consultant
 #
 # Purpose:
@@ -154,4 +154,4 @@ Allow: /
 # SITEMAP
 # ------------------------------------------------------------
 
-Sitemap: https://raghavkanva.com/sitemap.xml
+Sitemap: https://www.raghavkanva.com/sitemap.xml

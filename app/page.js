@@ -3,7 +3,7 @@ import Image from 'next/image';
 const BOOK_CALL_URL = 'https://cal.com/raghavkanva/seo-consultation';
 const WHATSAPP_URL = 'https://wa.me/919514808885';
 
-const SITE_URL = 'https://raghavkanva.com/';
+const SITE_URL = 'https://www.raghavkanva.com/';
 
 const homepageSchema = {
   '@context': 'https://schema.org',
@@ -65,7 +65,7 @@ const homepageSchema = {
   ],
 };
 
-/* ── shared icon data ── */
+/* ── shared content data (defined once, rendered once) ── */
 
 const helpItems = [
   {
@@ -209,28 +209,25 @@ const businessAreas = [
   },
 ];
 
-/* ── the diagnostic SVG, reused desktop + mobile with different ids ── */
-
-function DiagnosticSvg({ suffix = '', className }) {
-  const id = (base) => `${base}${suffix}`;
+function DiagnosticSvg() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby={`${id('title')} ${id('desc')}`} className={className}>
-      <title id={id('title')}>SEO diagnostic visual</title>
-      <desc id={id('desc')}>A clean SEO diagnostic illustration showing several search signals with one important issue highlighted for closer review.</desc>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="diagnosticTitle diagnosticDesc">
+      <title id="diagnosticTitle">SEO diagnostic visual</title>
+      <desc id="diagnosticDesc">A clean SEO diagnostic illustration showing several search signals with one important issue highlighted for closer review.</desc>
       <defs>
-        <filter id={id('cardShadow')} x="-20%" y="-20%" width="140%" height="140%">
+        <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
           <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#101525" floodOpacity="0.08" />
         </filter>
-        <filter id={id('focusShadow')} x="-30%" y="-30%" width="160%" height="160%">
+        <filter id="focusShadow" x="-30%" y="-30%" width="160%" height="160%">
           <feDropShadow dx="0" dy="14" stdDeviation="18" floodColor="#2457E6" floodOpacity="0.12" />
         </filter>
-        <radialGradient id={id('softFocus')} cx="50%" cy="50%" r="50%">
+        <radialGradient id="softFocus" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#2457E6" stopOpacity="0.14" />
           <stop offset="100%" stopColor="#2457E6" stopOpacity="0" />
         </radialGradient>
       </defs>
       <rect x="20" y="20" width="600" height="380" rx="30" fill="#F8F7F3" />
-      <g filter={`url(#${id('cardShadow')})`}>
+      <g filter="url(#cardShadow)">
         <rect x="65" y="75" width="155" height="82" rx="18" fill="#FFFFFF" stroke="#E1E8FA" />
         <circle cx="94" cy="104" r="11" fill="#EEF3FF" />
         <path d="M90 104 H98" stroke="#2457E6" strokeWidth="2" strokeLinecap="round" />
@@ -239,7 +236,7 @@ function DiagnosticSvg({ suffix = '', className }) {
         <rect x="119" y="110" width="52" height="6" rx="3" fill="#18233B" opacity="0.09" />
         <rect x="87" y="132" width="102" height="6" rx="3" fill="#2457E6" opacity="0.12" />
       </g>
-      <g filter={`url(#${id('cardShadow')})`}>
+      <g filter="url(#cardShadow)">
         <rect x="65" y="185" width="155" height="82" rx="18" fill="#FFFFFF" stroke="#E1E8FA" />
         <rect x="84" y="207" width="23" height="23" rx="7" fill="#EEF3FF" />
         <path d="M90 222 L94 216 L98 220 L103 212" fill="none" stroke="#2457E6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -247,7 +244,7 @@ function DiagnosticSvg({ suffix = '', className }) {
         <rect x="119" y="221" width="48" height="6" rx="3" fill="#18233B" opacity="0.09" />
         <rect x="87" y="242" width="96" height="6" rx="3" fill="#2457E6" opacity="0.12" />
       </g>
-      <g filter={`url(#${id('cardShadow')})`}>
+      <g filter="url(#cardShadow)">
         <rect x="65" y="295" width="155" height="72" rx="18" fill="#FFFFFF" stroke="#E1E8FA" />
         <circle cx="95" cy="322" r="10" fill="#EEF3FF" />
         <path d="M90 322 H100" stroke="#2457E6" strokeWidth="2" strokeLinecap="round" />
@@ -257,8 +254,8 @@ function DiagnosticSvg({ suffix = '', className }) {
       <path d="M220 116 C260 116 275 136 302 157" fill="none" stroke="#2457E6" strokeWidth="2" strokeOpacity="0.15" />
       <path d="M220 226 C257 226 276 218 302 205" fill="none" stroke="#2457E6" strokeWidth="2" strokeOpacity="0.15" />
       <path d="M220 330 C257 330 279 282 310 244" fill="none" stroke="#2457E6" strokeWidth="2" strokeOpacity="0.15" />
-      <circle cx="365" cy="210" r="96" fill={`url(#${id('softFocus')})`} />
-      <g filter={`url(#${id('focusShadow')})`}>
+      <circle cx="365" cy="210" r="96" fill="url(#softFocus)" />
+      <g filter="url(#focusShadow)">
         <rect x="305" y="158" width="120" height="104" rx="24" fill="#FFFFFF" stroke="#2457E6" strokeWidth="2.5" />
         <circle cx="365" cy="195" r="20" fill="#EEF3FF" />
         <path d="M365 183 V197" stroke="#2457E6" strokeWidth="2.5" strokeLinecap="round" />
@@ -293,67 +290,44 @@ export default function HomePage() {
       />
 
       {/* ── HERO ── */}
-      <section className="hero-desktop">
-        <div className="hero-desktop-content">
-          <div className="hero-eyebrow">SEO Consultant</div>
-          <h1 className="hero-h1">What you do best may not be clear online.</h1>
-          <p className="hero-supporting">I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</p>
-          <div className="btn-row">
-            <a href={BOOK_CALL_URL} className="btn-primary">Book a Call</a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Me</a>
-          </div>
-        </div>
-        <div className="hero-desktop-visual">
-          <div className="hero-photo-offset" />
-          <Image src="/images/raghav-kanva.jpg" alt="Raghav Kanva" width={420} height={420} className="hero-photo" priority />
-        </div>
-      </section>
-
-      <section className="hero-mobile">
+      <section className="hero">
         <div className="hero-eyebrow">SEO Consultant</div>
         <h1 className="hero-h1">What you do best may not be clear online.</h1>
-        <div className="hero-mobile-row">
-          <div className="hero-photo-wrap-sm">
-            <div className="hero-photo-offset-sm" />
-            <Image src="/images/raghav-kanva.jpg" alt="Raghav Kanva" width={100} height={100} className="hero-photo-sm" priority />
-          </div>
-          <p>I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</p>
+        <div className="hero-photo-wrap">
+          <div className="hero-photo-offset" />
+          <Image
+            src="/images/raghav-kanva.jpg"
+            alt="Raghav Kanva"
+            width={420}
+            height={420}
+            sizes="(max-width: 900px) 100px, 420px"
+            className="hero-photo"
+            priority
+          />
         </div>
-        <div className="btn-col">
-          <a href={BOOK_CALL_URL} className="btn-primary-block">Book a Call</a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary-block">WhatsApp Me</a>
+        <p className="hero-supporting">I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</p>
+        <div className="btn-row">
+          <a href={BOOK_CALL_URL} className="btn-primary">Book a Call</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Me</a>
         </div>
       </section>
 
       {/* ── WHEN THE CURRENT APPROACH IS NOT WORKING ── */}
-      <section className="approach-desktop">
-        <div className="approach-desktop-grid">
-          <div>
-            <h2 className="approach-h2">When the Current Approach Is Not Working</h2>
-            <p className="approach-p">Sometimes an agency may already have tried different SEO methods, but the expected customers or results are still not coming.</p>
-            <p className="approach-p">I bring a fresh view, understand what has already been tried, find what may be going wrong, and help decide what should change next.</p>
-            <p className="approach-p">This is useful when the team has already put in the effort but needs another perspective before continuing.</p>
-            <a href={BOOK_CALL_URL} className="btn-primary">Discuss a Project</a>
-          </div>
-          <div className="approach-visual">
-            <DiagnosticSvg />
-          </div>
-        </div>
-      </section>
-
-      <section className="approach-mobile">
+      <section className="approach">
         <h2 className="approach-h2">When the Current Approach Is Not Working</h2>
-        <p className="approach-p">Sometimes an agency may already have tried different SEO methods, but the expected customers or results are still not coming.</p>
-        <p className="approach-p">I bring a fresh view, understand what has already been tried, find what may be going wrong, and help decide what should change next.</p>
-        <p className="approach-p">This is useful when the team has already put in the effort but needs another perspective before continuing.</p>
-        <div className="approach-mobile-visual">
-          <DiagnosticSvg suffix="M" />
+        <div className="approach-body">
+          <p className="approach-p">Sometimes an agency may already have tried different SEO methods, but the expected customers or results are still not coming.</p>
+          <p className="approach-p">I bring a fresh view, understand what has already been tried, find what may be going wrong, and help decide what should change next.</p>
+          <p className="approach-p">This is useful when the team has already put in the effort but needs another perspective before continuing.</p>
         </div>
-        <a href={BOOK_CALL_URL} className="btn-primary-block">Discuss a Project</a>
+        <div className="approach-visual">
+          <DiagnosticSvg />
+        </div>
+        <a href={BOOK_CALL_URL} className="btn-primary approach-cta">Discuss a Project</a>
       </section>
 
       {/* ── UNDERSTANDING THE BUSINESS COMES FIRST ── */}
-      <section className="understanding-desktop">
+      <section className="understanding">
         <div className="understanding-heading">
           <h2>Understanding the Business Comes First</h2>
         </div>
@@ -361,8 +335,14 @@ export default function HomePage() {
           <div className="understanding-supporting">The better I understand your business, the clearer the search opportunities become.</div>
           <div className="understanding-before">Before deciding what to improve, I understand:</div>
         </div>
+
+        {/* Desktop: radial business-hub diagram. Genuinely different spatial
+            layout from the mobile list (absolute-positioned around a center
+            hub with connecting lines) rather than a simple reflow, so it
+            keeps its own markup — kept minimal per the audit's own fallback
+            for this case. Hidden (not just visually offset) below 900px. */}
         <div className="biz-hub">
-          <svg className="biz-hub-lines" width="1100" height="720" stroke="#33405C" strokeWidth="1.5">
+          <svg className="biz-hub-lines" width="1100" height="720" stroke="#33405C" strokeWidth="1.5" aria-hidden="true">
             {businessAreas.map((area) => (
               <line key={area.title} x1="550" y1="360" x2={area.lineX} y2={area.lineY} />
             ))}
@@ -375,21 +355,17 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
 
-      <section className="understanding-mobile">
-        <h2>Understanding the Business Comes First</h2>
-        <div className="understanding-supporting">The better I understand your business, the clearer the search opportunities become.</div>
-        <div className="understanding-before">Before deciding what to improve, I understand:</div>
+        {/* Mobile: vertical readable list, same content, own icons. */}
         <div className="understanding-label">Your Business</div>
-        <div>
+        <div className="biz-list">
           {businessAreas.map((area) => (
             <div key={area.title} className="biz-list-item">
               <svg viewBox="0 0 28 28" fill="none" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 {area.icon}
               </svg>
               <div>
-                <div className="biz-list-item-title">{area.title}</div>
+                <h3 className="biz-list-item-title">{area.title}</h3>
                 <div className="biz-list-item-desc">{area.desc}</div>
               </div>
             </div>
@@ -407,7 +383,7 @@ export default function HomePage() {
       </section>
 
       {/* ── HOW I CAN HELP ── */}
-      <section id="help" className="help-desktop">
+      <section id="help" className="help">
         <div className="help-heading"><h2>How I Can Help</h2></div>
         <div className="help-grid">
           {helpItems.map((item) => (
@@ -416,7 +392,7 @@ export default function HomePage() {
                 {item.icon}
               </svg>
               <div>
-                <div className="help-item-title">{item.title}</div>
+                <h3 className="help-item-title">{item.title}</h3>
                 <div className="help-item-desc">{item.desc}</div>
               </div>
             </div>
@@ -428,29 +404,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="help-m" className="help-mobile">
-        <h2>How I Can Help</h2>
-        <div className="help-grid">
-          {helpItems.map((item) => (
-            <div key={item.title} className="help-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                {item.icon}
-              </svg>
-              <div>
-                <div className="help-item-title">{item.title}</div>
-                <div className="help-item-desc">{item.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="help-closing">
-          <p>The goal is simple: help you reach the right customers, achieve your business goals, and grow your business online.</p>
-          <a href={BOOK_CALL_URL} className="btn-primary-block">Book a Call</a>
-        </div>
-      </section>
-
       {/* ── WHO I WORK WITH ── */}
-      <section id="who" className="who-desktop">
+      <section id="who" className="who">
         <h2>Who I Work With</h2>
         <div className="who-grid">
           <div className="who-card">
@@ -458,7 +413,7 @@ export default function HomePage() {
               <rect x="3" y="4" width="7" height="7" rx="1" /><rect x="14" y="4" width="7" height="7" rx="1" />
               <rect x="3" y="15" width="7" height="7" rx="1" /><rect x="14" y="15" width="7" height="7" rx="1" />
             </svg>
-            <div className="who-card-title">Digital Marketing Agencies</div>
+            <h3 className="who-card-title">Digital Marketing Agencies</h3>
             <div className="who-card-sub">
               <div>
                 <div className="who-card-sub-title">For a client&rsquo;s SEO</div>
@@ -474,88 +429,42 @@ export default function HomePage() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 21V9l8-5 8 5v12" /><line x1="4" y1="21" x2="20" y2="21" /><rect x="10" y="14" width="4" height="7" />
             </svg>
-            <div className="who-card-title">Businesses</div>
+            <h3 className="who-card-title solo">Businesses</h3>
             <div className="who-card-body">For businesses that want the right customers to find them, choose them, and help grow the business online.</div>
           </div>
           <div className="who-card">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
             </svg>
-            <div className="who-card-title">Founders &amp; Experts</div>
-            <div className="who-card-body">For founders and experts who want the right audience to find their knowledge, understand what they offer, and create more opportunities to grow their income online.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="who-m" className="who-mobile">
-        <h2>Who I Work With</h2>
-        <div className="who-grid">
-          <div className="who-card">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="7" height="7" rx="1" /><rect x="14" y="4" width="7" height="7" rx="1" />
-              <rect x="3" y="15" width="7" height="7" rx="1" /><rect x="14" y="15" width="7" height="7" rx="1" />
-            </svg>
-            <div className="who-card-title">Digital Marketing Agencies</div>
-            <div className="who-card-sub">
-              <div>
-                <div className="who-card-sub-title">For a client&rsquo;s SEO</div>
-                <div className="who-card-sub-desc">When your agency needs a fresh view, extra help, or full SEO support for a client project.</div>
-              </div>
-              <div>
-                <div className="who-card-sub-title">For the agency&rsquo;s own SEO</div>
-                <div className="who-card-sub-desc">When you want more of the right clients to find your agency online and get in touch.</div>
-              </div>
-            </div>
-          </div>
-          <div className="who-card">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M4 21V9l8-5 8 5v12" /><line x1="4" y1="21" x2="20" y2="21" /><rect x="10" y="14" width="4" height="7" />
-            </svg>
-            <div className="who-card-title solo">Businesses</div>
-            <div className="who-card-body">For businesses that want the right customers to find them, choose them, and help grow the business online.</div>
-          </div>
-          <div className="who-card">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-            </svg>
-            <div className="who-card-title solo">Founders &amp; Experts</div>
+            <h3 className="who-card-title solo">Founders &amp; Experts</h3>
             <div className="who-card-body">For founders and experts who want the right audience to find their knowledge, understand what they offer, and create more opportunities to grow their income online.</div>
           </div>
         </div>
       </section>
 
       {/* ── WORK WITH ME ── */}
-      <section className="work-with-me-desktop">
+      <section className="work-with-me">
         <div>
           <h2>Work With Me</h2>
           <p>I stay personally involved in the planning and important decisions. When needed, I can also work with your team online or in person.</p>
         </div>
-        <Image src="/images/raghav-kanva.jpg" alt="" width={170} height={170} className="work-with-me-photo" />
-      </section>
-
-      <section className="work-with-me-mobile">
-        <h2>Work With Me</h2>
-        <p>I stay personally involved in the planning and important decisions. When needed, I can also work with your team online or in person.</p>
+        <Image
+          src="/images/raghav-kanva.jpg"
+          alt=""
+          width={170}
+          height={170}
+          className="work-with-me-photo"
+        />
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section id="contact" className="final-cta-desktop">
+      <section id="contact" className="final-cta">
         <h2>Start With a Discovery Call</h2>
         <p>Whether you are starting SEO or trying to improve what is already happening, tell me what you want to achieve and where things stand today.</p>
         <div className="final-cta-sub">30-minute call</div>
         <div className="final-cta-buttons">
           <a href={BOOK_CALL_URL} className="btn-cta-white">Book a Call</a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta-outline">WhatsApp Me</a>
-        </div>
-      </section>
-
-      <section id="contact-m" className="final-cta-mobile">
-        <h2>Start With a Discovery Call</h2>
-        <p>Whether you are starting SEO or trying to improve what is already happening, tell me what you want to achieve and where things stand today.</p>
-        <div className="final-cta-sub">30-minute call</div>
-        <div className="final-cta-buttons">
-          <a href={BOOK_CALL_URL} className="btn-cta-white-block">Book a Call</a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta-outline-block">WhatsApp Me</a>
         </div>
       </section>
     </div>

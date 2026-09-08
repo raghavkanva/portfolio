@@ -1,9 +1,17 @@
+import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import StickyContactDock from '../components/layout/StickyContactDock';
 
-const SITE_URL = 'https://raghavkanva.com/';
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const SITE_URL = 'https://www.raghavkanva.com/';
 const TITLE = 'SEO Consultant for Agencies & Businesses | Raghav Kanva';
 const DESCRIPTION = 'SEO Consultant helping agencies and businesses reach the right customers through Google and AI search, find what is holding them back, and grow their business online.';
 const OG_DESCRIPTION = 'Helping agencies and businesses reach the right customers through Google and AI search, improve what is not working, and grow their business online.';
@@ -30,7 +38,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <link rel="canonical" href={SITE_URL} />
         <meta property="og:title" content={TITLE} />
@@ -38,10 +46,8 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:image" content={PROFILE_IMAGE_URL} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body>
+      <body className={inter.className}>
         <Navbar />
         <main className="page-wrapper">{children}</main>
         <Footer />

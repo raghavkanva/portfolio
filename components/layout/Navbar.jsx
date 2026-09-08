@@ -9,19 +9,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="nav-desktop">
+      <nav className="site-nav">
         <a href="#top" className="nav-logo">RAGHAV&nbsp;KANVA</a>
         <div className="nav-links">
           <a href="#help" className="nav-link">How I Help</a>
           <a href="#who" className="nav-link">Who I Work With</a>
         </div>
-        <a href={BOOK_CALL_URL} className="btn-nav-cta">Book a Call</a>
-      </nav>
-
-      <nav className="nav-mobile">
-        <a href="#top" className="nav-mobile-logo">RAGHAV KANVA</a>
-        <div className="nav-mobile-actions">
-          <a href={BOOK_CALL_URL} className="nav-mobile-cta">Book a Call</a>
+        <div className="nav-actions">
+          <a href={BOOK_CALL_URL} className="btn-nav-cta">Book a Call</a>
           <button
             className="hamburger"
             onClick={() => setMobileOpen((o) => !o)}
