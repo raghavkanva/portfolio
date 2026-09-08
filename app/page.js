@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { gtmAttrs } from '../lib/gtm';
 
 const BOOK_CALL_URL = 'https://cal.com/raghavkanva/seo-consultation';
 const WHATSAPP_URL = 'https://wa.me/919514808885';
@@ -307,8 +308,8 @@ export default function HomePage() {
         </div>
         <p className="hero-supporting">I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</p>
         <div className="btn-row">
-          <a href={BOOK_CALL_URL} className="btn-primary">Book a Call</a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Me</a>
+          <a href={BOOK_CALL_URL} className="btn-primary" {...gtmAttrs('contact_click', { contact_method: 'call', click_location: 'hero' })}>Book a Call</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary" {...gtmAttrs('contact_click', { contact_method: 'whatsapp', click_location: 'hero' })}>WhatsApp Me</a>
         </div>
       </section>
 
@@ -323,7 +324,7 @@ export default function HomePage() {
         <div className="approach-visual">
           <DiagnosticSvg />
         </div>
-        <a href={BOOK_CALL_URL} className="btn-primary approach-cta">Discuss a Project</a>
+        <a href={BOOK_CALL_URL} className="btn-primary approach-cta" {...gtmAttrs('contact_click', { contact_method: 'call', click_location: 'approach' })}>Discuss a Project</a>
       </section>
 
       {/* ── UNDERSTANDING THE BUSINESS COMES FIRST ── */}
@@ -400,7 +401,7 @@ export default function HomePage() {
         </div>
         <div className="help-closing">
           <p>The goal is simple: help you reach the right customers, achieve your business goals, and grow your business online.</p>
-          <a href={BOOK_CALL_URL} className="btn-primary">Book a Call</a>
+          <a href={BOOK_CALL_URL} className="btn-primary" {...gtmAttrs('contact_click', { contact_method: 'call', click_location: 'how_i_can_help' })}>Book a Call</a>
         </div>
       </section>
 
@@ -463,8 +464,8 @@ export default function HomePage() {
         <p>Whether you are starting SEO or trying to improve what is already happening, tell me what you want to achieve and where things stand today.</p>
         <div className="final-cta-sub">30-minute call</div>
         <div className="final-cta-buttons">
-          <a href={BOOK_CALL_URL} className="btn-cta-white">Book a Call</a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta-outline">WhatsApp Me</a>
+          <a href={BOOK_CALL_URL} className="btn-cta-white" {...gtmAttrs('contact_click', { contact_method: 'call', click_location: 'final_cta' })}>Book a Call</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta-outline" {...gtmAttrs('contact_click', { contact_method: 'whatsapp', click_location: 'final_cta' })}>WhatsApp Me</a>
         </div>
       </section>
     </div>
