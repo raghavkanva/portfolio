@@ -20,23 +20,25 @@ export default function Navbar() {
 
       <nav className="nav-mobile">
         <a href="#top" className="nav-mobile-logo">RAGHAV KANVA</a>
-        <button
-          className="hamburger"
-          onClick={() => setMobileOpen((o) => !o)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="nav-mobile-actions">
+          <a href={BOOK_CALL_URL} className="nav-mobile-cta">Book a Call</a>
+          <button
+            className="hamburger"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </nav>
 
       {mobileOpen && (
         <div className="mobile-menu">
           <a href="#help" className="mobile-menu-link" onClick={() => setMobileOpen(false)}>How I Help</a>
           <a href="#who" className="mobile-menu-link" onClick={() => setMobileOpen(false)}>Who I Work With</a>
-          <a href={BOOK_CALL_URL} className="mobile-menu-cta">Book a Call</a>
         </div>
       )}
     </>

@@ -3,6 +3,68 @@ import Image from 'next/image';
 const BOOK_CALL_URL = 'https://cal.com/raghavkanva/seo-consultation';
 const WHATSAPP_URL = 'https://wa.me/919514808885';
 
+const SITE_URL = 'https://raghavkanva.com/';
+
+const homepageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}#website`,
+      url: SITE_URL,
+      name: 'Raghav Kanva',
+      publisher: { '@id': `${SITE_URL}#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}#person`,
+      name: 'Raghav Kanva',
+      url: SITE_URL,
+      jobTitle: 'SEO Consultant',
+      description: 'SEO Consultant helping agencies and businesses reach the right customers through Google and AI search, identify what may be holding them back, and grow their business online.',
+      image: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}images/raghav-kanva.jpg`,
+      },
+      email: 'mailto:raghavkanva@gmail.com',
+      telephone: '+919514808885',
+      sameAs: [
+        'https://www.linkedin.com/in/raghavkanva/',
+        'https://www.instagram.com/raghavkanva/',
+        'https://www.threads.net/@raghavkanva',
+      ],
+      knowsAbout: [
+        'SEO',
+        'Search Engine Optimization',
+        'Google Search',
+        'AI Search',
+        'Keyword Research',
+        'Content Strategy',
+        'Landing Page Strategy',
+        'Search Strategy',
+        'SEO Audits',
+        'Google Ads',
+        'Meta Ads',
+      ],
+      makesOffer: { '@id': `${SITE_URL}#seo-service` },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${SITE_URL}#seo-service`,
+      name: 'SEO Consulting',
+      serviceType: 'SEO Consulting',
+      provider: { '@id': `${SITE_URL}#person` },
+      url: SITE_URL,
+      description: 'SEO consulting for digital marketing agencies, businesses, founders, and experts, including search strategy, SEO review, content and landing page guidance, AI search visibility, and selected paid advertising support.',
+      audience: [
+        { '@type': 'Audience', audienceType: 'Digital Marketing Agencies' },
+        { '@type': 'Audience', audienceType: 'Businesses' },
+        { '@type': 'Audience', audienceType: 'Founders and Experts' },
+      ],
+    },
+  ],
+};
+
 /* ── shared icon data ── */
 
 const helpItems = [
@@ -225,12 +287,17 @@ function DiagnosticSvg({ suffix = '', className }) {
 export default function HomePage() {
   return (
     <div id="top">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
+      />
+
       {/* ── HERO ── */}
       <section className="hero-desktop">
         <div className="hero-desktop-content">
           <div className="hero-eyebrow">SEO Consultant</div>
           <h1 className="hero-h1">What you do best may not be clear online.</h1>
-          <p className="hero-supporting">I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and grow their business online.</p>
+          <p className="hero-supporting">I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</p>
           <div className="btn-row">
             <a href={BOOK_CALL_URL} className="btn-primary">Book a Call</a>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">WhatsApp Me</a>
@@ -250,7 +317,7 @@ export default function HomePage() {
             <div className="hero-photo-offset-sm" />
             <Image src="/images/raghav-kanva.jpg" alt="Raghav Kanva" width={100} height={100} className="hero-photo-sm" priority />
           </div>
-          <p>I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and grow their business online.</p>
+          <p>I help businesses and agencies reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</p>
         </div>
         <div className="btn-col">
           <a href={BOOK_CALL_URL} className="btn-primary-block">Book a Call</a>

@@ -1,7 +1,9 @@
 const BOOK_CALL_URL = 'https://cal.com/raghavkanva/seo-consultation';
 const WHATSAPP_URL = 'https://wa.me/919514808885';
 
-const DESC = 'Helping agencies and businesses reach the right customers through Google and AI search, fix what is holding them back, and grow their business online.';
+const DESC = (
+  <>Helping agencies and businesses reach the right customers through Google and AI search, fix what is holding them back, and <span className="highlight-growth">grow their business</span> online.</>
+);
 
 function SocialIcons() {
   return (

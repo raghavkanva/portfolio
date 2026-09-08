@@ -45,6 +45,13 @@ h1, h2, h3, p { margin: 0; }
 
 .page-wrapper { overflow-x: hidden; }
 
+.highlight-growth {
+  text-decoration-line: underline;
+  text-decoration-color: #2457E6;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
 /* ============================================================
    NAV
    ============================================================ */
@@ -112,7 +119,26 @@ h1, h2, h3, p { margin: 0; }
   font-size: 16px;
   font-weight: 600;
   color: var(--navy);
+  white-space: nowrap;
 }
+
+.nav-mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-mobile-cta {
+  padding: 9px 14px;
+  background: var(--cobalt);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.nav-mobile-cta:hover { background: var(--cobalt-dark); color: #fff; }
 
 .hamburger {
   display: flex;
@@ -144,16 +170,6 @@ h1, h2, h3, p { margin: 0; }
   font-size: 19px;
   font-weight: 500;
   color: #fff;
-}
-
-.mobile-menu-cta {
-  padding: 16px;
-  background: var(--cobalt);
-  color: #fff;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 4px;
 }
 
 /* ============================================================
@@ -899,13 +915,13 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ============================================================
-   FLOATING WHATSAPP (desktop) + MOBILE ACTION BAR
+   FLOATING WHATSAPP (desktop + mobile)
    ============================================================ */
 .whatsapp-float {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 30;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
   width: 52px;
   height: 52px;
   border-radius: 100px;
@@ -934,51 +950,10 @@ h1, h2, h3, p { margin: 0; }
 
 .whatsapp-float:hover .whatsapp-float-label { opacity: 1; }
 
-.mobile-action-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--navy);
-  padding: 14px 16px calc(22px + env(safe-area-inset-bottom));
-  gap: 10px;
-  z-index: 30;
-}
-
-.mobile-action-whatsapp {
-  flex: 1;
-  text-align: center;
-  border: 1.5px solid #33405C;
-  color: #D5DAE6;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 100px;
-  padding: 11px 0;
-}
-
-.mobile-action-book {
-  flex: 1.4;
-  text-align: center;
-  background: var(--cobalt);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 100px;
-  padding: 11px 0;
-}
-
 /* ============================================================
    RESPONSIVE SWITCH — 900px
    ============================================================ */
-@media (min-width: 901px) {
-  .whatsapp-float { display: flex; }
-  .mobile-action-bar { display: none !important; }
-}
-
 @media (max-width: 900px) {
-  .page-wrapper { padding-bottom: 78px; }
-
   .nav-desktop { display: none; }
   .nav-mobile { display: flex; }
 
@@ -1010,6 +985,13 @@ h1, h2, h3, p { margin: 0; }
   .great-work h2 { font-size: 26px; line-height: 1.35; margin-bottom: 20px; }
   .great-work p { font-size: 16px; line-height: 1.55; margin-bottom: 14px; }
 
-  .whatsapp-float { display: none; }
-  .mobile-action-bar { display: flex; }
+  .whatsapp-float { width: 48px; height: 48px; right: 18px; bottom: 20px; }
+  .whatsapp-float:hover { width: 48px; }
+  .whatsapp-float-label { display: none; }
+}
+
+@media (max-width: 360px) {
+  .nav-mobile { padding: 0 12px; }
+  .nav-mobile-logo { font-size: 14px; }
+  .nav-mobile-cta { padding: 8px 10px; font-size: 12.5px; }
 }

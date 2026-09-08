@@ -1,0 +1,157 @@
+# ============================================================
+# robots.txt
+# Website: https://raghavkanva.com/
+# Raghav Kanva | SEO Consultant
+#
+# Purpose:
+# Allow legitimate search engines, AI search systems,
+# answer engines, assistants, image crawlers, and public
+# discovery systems to crawl the public website.
+# ============================================================
+
+
+# ------------------------------------------------------------
+# ALL STANDARDS-COMPLIANT CRAWLERS
+# This also covers legitimate crawlers that are not
+# individually listed below, including future crawlers.
+# ------------------------------------------------------------
+
+User-agent: *
+Allow: /
+
+
+# ------------------------------------------------------------
+# GOOGLE SEARCH
+# ------------------------------------------------------------
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+
+# ------------------------------------------------------------
+# GOOGLE / GEMINI
+# Google-Extended does not control normal Google rankings.
+# It is a separate control for supported Gemini-related uses.
+# ------------------------------------------------------------
+
+User-agent: Google-Extended
+Allow: /
+
+
+# ------------------------------------------------------------
+# MICROSOFT BING / COPILOT
+# ------------------------------------------------------------
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: MicrosoftPreview
+Allow: /
+
+User-agent: BingVideoPreview
+Allow: /
+
+
+# ------------------------------------------------------------
+# OPENAI / CHATGPT
+# ------------------------------------------------------------
+
+# ChatGPT Search discovery and citations
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI model-development crawler
+User-agent: GPTBot
+Allow: /
+
+# OpenAI advertising landing-page crawler
+# Harmless to allow even if ads are not currently used.
+User-agent: OAI-AdsBot
+Allow: /
+
+
+# ------------------------------------------------------------
+# ANTHROPIC / CLAUDE
+# ------------------------------------------------------------
+
+# Claude search discovery
+User-agent: Claude-SearchBot
+Allow: /
+
+# User-requested web retrieval in Claude
+User-agent: Claude-User
+Allow: /
+
+# Anthropic model-development crawler
+User-agent: ClaudeBot
+Allow: /
+
+
+# ------------------------------------------------------------
+# PERPLEXITY
+# ------------------------------------------------------------
+
+User-agent: PerplexityBot
+Allow: /
+
+
+# ------------------------------------------------------------
+# APPLE SEARCH / SIRI / APPLE INTELLIGENCE
+# ------------------------------------------------------------
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+
+# ------------------------------------------------------------
+# OTHER MAJOR SEARCH ENGINES
+# ------------------------------------------------------------
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+
+# ------------------------------------------------------------
+# COMMON WEB DATA CRAWLER
+# Often used in public web datasets.
+# ------------------------------------------------------------
+
+User-agent: CCBot
+Allow: /
+
+
+# ------------------------------------------------------------
+# SITEMAP
+# ------------------------------------------------------------
+
+Sitemap: https://raghavkanva.com/sitemap.xml
